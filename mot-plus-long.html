@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>Mot le plus long</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="mot-plus-long.css" />
+    <title>Mot le plus long</title>
 </head>
+
 <body>
-<header></header>
-<main>
-<p id="citation">Choisissez un travail que vous aimez et vous n’aurez pas
-à travailler un seul jour de votre vie.</p>
-<p id="motPlusLong"></p>
-</main>
-<footer></footer>
-<script src="Mot-Plus-Long.js"></script>
+    <div class="container">
+        <h1>Mot le plus long</h1>
+        <p>Utilisez les lettres ci-dessous pour créer le mot le plus long possible.</p>
+        <div id="letters-container">
+            <div class="letters">
+                <span>A</span>
+                <span>T</span>
+                <span>P</span>
+                <span>E</span>
+                <span>R</span>
+                <span>C</span>
+                <span>O</span>
+                <span>N</span>
+                <span>I</span>
+                <span>L</span>
+            </div>
+        </div>
+        <form id="word-form">
+            <label for="user-word">Entrez un mot : </label>
+            <input type="text" id="user-word" placeholder="Votre mot..." required />
+            <button type="submit">Vérifier</button>
+        </form>
+        <p id="result"></p>
+        <p id="message"></p>
+    </div>
+
+    <script src="mot-plus-long.js"></script>
 </body>
+
 </html>
