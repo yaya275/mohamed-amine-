@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Dégradé bleu/violet */
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff); /* Dégradé bleu clair */
     color: white;
     text-align: center;
     display: flex;
@@ -48,19 +48,20 @@ header p {
 }
 
 .mission-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
+    background-color: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     max-width: 320px;
     width: 100%;
+    text-align: center;
 }
 
 .mission-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .mission-card a {
@@ -68,25 +69,20 @@ header p {
     color: inherit;
 }
 
-.mission-icon {
-    font-size: 3.5em;
-    margin-bottom: 15px;
-}
-
 .mission-card h2 {
     font-size: 1.5em;
-    color: #fff;
+    color: #333;
     margin-bottom: 10px;
 }
 
 .mission-card p {
     font-size: 1em;
-    color: #ddd;
+    color: #666;
 }
 
-/* Animation et effet de bouton */
+/* Boutons améliorés (remplacés par des cartes sans emojis) */
 .mission-card:hover h2 {
-    color: #f0f8ff; /* Changement de couleur du titre au survol */
+    color: #00d2ff; /* Bleu clair au survol */
 }
 
 .mission-card p {
@@ -94,5 +90,16 @@ header p {
 }
 
 .mission-card:hover p {
-    color: #ffeb3b; /* Jaune vif au survol */
+    color: #3a7bd5; /* Changement de couleur de texte au survol */
+}
+
+/* Optimisation de l'apparence des textes dans les missions */
+.mission-card h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mission-card p {
+    font-style: italic;
+    margin-top: 10px;
 }
