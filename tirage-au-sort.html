@@ -5,22 +5,134 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./tirageAuSort.css" />
     <title>Tirage au sort</title>
+    <style>
+        /* Styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Dégradé doux de couleurs */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        fieldset {
+            border: 2px solid #ff7e5f;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        legend {
+            font-size: 1.5em;
+            color: #ff7e5f;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #ff7e5f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #feb47b;
+        }
+
+        #affichage {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #aleatoire {
+            font-size: 1.5em;
+            color: #ff7e5f;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <form action="">
-        <fieldset id="essaiAffichage">
-            <!--PERMET DE DONNER UNE LEGENDE AU FIELDSET-->
-            <legend id="legendTaille">TIRAGE AU SORT</legend>
-            <!--BOUTON QUI LANCE LA FONCTION tirage-->
-            <button type="button" onclick="tirage()">Tirage au sort</button>
-            <p id="affichage"></p>
-            <p id="aleatoire"></p>
-        </fieldset>
-    </form>
-    <script src="./tirage-au-sort.js"></script>
+    <div class="container">
+        <h1>Tirage au sort</h1>
+        <form id="tirageForm">
+            <fieldset>
+                <legend>TIRAGE AU SORT</legend>
+                <label for="participants">Entrez les participants (séparés par des virgules):</label>
+                <input type="text" id="participants" placeholder="Ex: Alice, Bob, Charlie, Dave" required />
+                <button type="button" onclick="tirage()">Tirage au sort</button>
+                <p id="affichage"></p>
+                <p id="aleatoire"></p>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        function tirage() {
+            // Récupérer les participants depuis le champ de texte
+            let participantsInput = document.getElementById('participants').value;
+
+            // Vérifier que le champ n'est pas vide
+            if (!participantsInput) {
+                alert("Veuillez entrer des participants.");
+                return;
+            }
+
+            // Diviser les participants par la virgule et supprimer les espaces inutiles
+            let participants = participantsInput.split(',').map(item => item.trim());
+
+            // Vérifier qu'il y a au moins un participant
+            if (participants.length < 2) {
+                alert("Veuillez entrer au moins deux participants.");
+                return;
+            }
+
+            // Générer un nombre aléatoire pour sélectionner un participant
+            let tirageGagnant = participants[Math.floor(Math.random() * participants.length)];
+
+            // Afficher le résultat du tirage
+            document.getElementById('aleatoire').textContent = `Le gagnant du tirage au sort est : ${tirageGagnant}`;
+        }
+    </script>
 </body>
 
 </html>
